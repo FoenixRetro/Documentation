@@ -9,7 +9,7 @@ Presently loading [kernel user programs](https://github.com/ghackwrench/F256_Jr_
 
 To load a program, place it on eg. the SD card, and run it from DOS by typing its name.
 
-Arguments may be passed to the program by adding them after the program name.
+Arguments may be passed to the program by adding them after the program name. Included in the firmware download is a `hello` program. This may be placed on disk and run by typing `hello` at the DOS prompt. Additionally, arguments may be added and they will be printed by the program.
 
 # Programming information
 Kernel user programs comprise up to four banks of code, and may be placed in the area $2000-$9FFF. The program header provides information to DOS on where to load the program and its entry address.
