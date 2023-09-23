@@ -2,14 +2,14 @@
 
 The Junior (JR) is distributed as a bare main board.  You'll need (at a mininum)
 
-- A MiniITX case
+- a MiniITX case
 - 24 pin ATX power supply (PSU)
 - PS/2 compatible keyboard
 - DVI capable display
 
 ## MiniITX case
 
-In theory, any MiniITX case should work, but double check the port cutout in the back.   This [metal option from Amazon](https://www.amazon.com/dp/B07GYP2TWC) looks like and is well construcuted, several builders have used it.   If you want to use the built in USB ports of the case, double check the connector types.  USB 2.0 ports connector to a motherboard are typically 9 pin style (DR10 = Dual Row Header 10 pins, with a "key" pin cut to prevent connector being attached backwards).   If the case has 20 pin USB 3.0 style motherboard connectors, buy a [converter like this one](https://www.amazon.com/gp/product/B084D58HBP).
+In theory, any MiniITX case should work, but double check the port cutout in the back.   This [metal option from Amazon](https://www.amazon.com/dp/B07GYP2TWC) looks nice and is well construcuted, several builders have used it.   If you want to use the built-in USB ports of the case, double check the connector types.  USB 2.0 port connectors on a motherboard are typically 9 pin style (DR10 = Dual Row Header 10 pins, with a "key" pin cut to prevent connector being attached backwards).   If the case has 20 pin USB 3.0 style motherboard connectors, buy a [converter like this one](https://www.amazon.com/gp/product/B084D58HBP).
 
 ## 24 pin ATX power supply (PSU)
 
@@ -23,7 +23,7 @@ Since the JR needs very little power, a PicoPSU works well and is small and easy
 
 The JR needs a PS/2 keyboard and uses the traditional purple 6-pin DIN PS/2 port.  You can opt for a known good modern PS/2 board, like the [Perixx PERIBOARD-409P](https://www.amazon.com/dp/B00JV08TIA).  
 
-There are also USB based boards that are "PS/2 compatible".  These are a bit of a hybrid as when these boards are put into PS/2 mode, they emit PS/2 signaling over a physical USB port.   You would need to use the appropriate purple USB to PS/2 adapter, [like this one](https://www.amazon.com/gp/product/B09WV5JMKS).  Note that you need the purple adapters, not the green ones which are wired differently internally for a mouse.
+There are also USB based boards that are "PS/2 compatible".  These are a bit of a hybrid as when these boards are put into PS/2 mode, they emit PS/2 signaling over a physical USB port.   You would need to use the appropriate purple USB to PS/2 adapter, [like this one](https://www.amazon.com/gp/product/B09WV5JMKS).  Note that you need the purple adapters, not the green ones which are wired differently for a mouse.
 
 USB keyboards that support a "PS/2" mode were more common during the transition era between the standards and most modern USB keyboards are not going to work.   The Agon Light project maintains a [list of some USB keyboards that are known to support a PS/2 mode](https://docs.google.com/spreadsheets/d/1-6_sz6l-vJW5rFg3M0Y6bwC0hmFS7U6PPNjIZ9plrM8/edit).
 
@@ -47,7 +47,7 @@ The JR has two SID slots for SID chips, but they do not come populated (note: th
 
 ### RTC Battery
 
-The F256 line sports a battery backed real-time clock (RTC) that will keep the time & date over restarts.  It's powered by a 3V CR2023 battery, that should be installed with the '+' (positive) side up.
+The F256 line sports a battery backed real-time clock (RTC) that will keep the time & date over restarts.  It's powered by a [3V CR2023](https://www.amazon.com/AmazonBasics-CR2032-Lithium-Coin-Cell/dp/B0787K2XWZ/) battery.
 
 ### ESP8266 Wi-Fi Feather
 
@@ -55,7 +55,7 @@ The F256 line can be expanded to support TCP/IP over Wi-Fi, using an ESP8266.  D
 
 # Assembly
 
-- Connect ATX power connector to main board before screwing the main board into the bottom of the case -- in general, you want to avoid putting a lot of pressure on the main board once its on the mounting standoffs, because the flex can damage the board.
+- Connect ATX power connector to main board before screwing the main board into the bottom of the case -- in general, you want to avoid putting a lot of pressure on the main board once it's on the mounting standoffs, because the flex can damage the board.
 
 - Green wire from PicoPSU should be grounded, you can use a motherboard mounting screw to hold it down
 
