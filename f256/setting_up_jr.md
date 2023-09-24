@@ -7,9 +7,13 @@ The Junior (JR) is distributed as a bare main board.  You'll need (at a mininum)
 - PS/2 compatible keyboard
 - DVI capable display
 
+Familiarize yourself with the [board layout](images/F256-Jr-Specs-OneSheeter.png).
+
 ## MiniITX case
 
-In theory, any MiniITX case should work, but double check the port cutout in the back.   This [metal option from Amazon](https://www.amazon.com/dp/B07GYP2TWC) looks nice and is well construcuted, several builders have used it.   If you want to use the built-in USB ports of the case, double check the connector types.  USB 2.0 port connectors on a motherboard are typically 9 pin style (DR10 = Dual Row Header 10 pins, with a "key" pin cut to prevent connector being attached backwards).   If the case has 20 pin USB 3.0 style motherboard connectors, buy a [converter like this one](https://www.amazon.com/gp/product/B084D58HBP).
+In theory, any MiniITX case should work.   This [metal option from Amazon](https://www.amazon.com/dp/B07GYP2TWC) looks nice and is well construcuted, several builders have used it.   If you want to use the built-in USB ports of the case, double check the connector types.  USB 2.0 port connectors on a motherboard are typically 9 pin style (DR10 = Dual Row Header 10 pins, with a "key" pin cut to prevent connector being attached backwards).   If the case has 20 pin USB 3.0 style motherboard connectors, buy a [converter like this one](https://www.amazon.com/gp/product/B084D58HBP).
+
+You can really put your own flair on the case design, as demonstrated by [a more advanced & custom example here](https://github.com/pig-games/F256-Jr-System-Case).
 
 ## 24 pin ATX power supply (PSU)
 
@@ -39,6 +43,10 @@ The JR (and the K) have a DVI output for video.  Either use a DVI montior, or bu
 
 ## Optional Pieces
 
+### Debug USB port connector
+
+You will definitely want access to the debug USB port as this is the primary way to do cross development for the device.  If you put the mainboard into a standard case, the clearance for the debug USB port on the front of the board is limited.   Either you an [L shaped connector like this one](https://www.amazon.com/StarTech-com-USBAUB2MU-Micro-Cable-Cord/dp/B00ENZDFQ4), or use the [9-pin motherboard style connector](https://www.amazon.com/BAIRONG-Motherboard-Adapter-Female-Dupont/dp/B09B1VGCDR/).  As discussed above, if the case comes with 20-pin style USB3.0 connectors for it's built in ports, use a [converter like this one](https://www.amazon.com/gp/product/B084D58HBP).
+
 ### SID (Commodore sound)
 
 The JR has two SID slots for SID chips, but they do not come populated (note: the K effectively includes the 2 SID chips, although they are implemented by the onboard FPGA and are not user replaceable).   Both 9V and 12V SID chips are supported (by jumper).  If you need to buy SID chips, you can buy used stock or one of the new replacements like BackSID, SwinSID, or ARM SID.
@@ -48,6 +56,13 @@ The JR has two SID slots for SID chips, but they do not come populated (note: th
 ### RTC Battery
 
 The F256 line sports a battery backed real-time clock (RTC) that will keep the time & date over restarts.  It's powered by a [3V CR2023](https://www.amazon.com/AmazonBasics-CR2032-Lithium-Coin-Cell/dp/B0787K2XWZ/) battery.
+
+### Case port cover / back plate
+
+The recommended case above doesn't come with a backplate / port cover.  You can the case open, or:
+
+- Buy a [universal back plate](https://www.amazon.com/IOmesh-Black-Universal-Shield-Plate/dp/B08NWFQXMJ/) and cut it.
+- Request the STL file for the backplate from Discord and 3d-print it.
 
 ### ESP8266 Wi-Fi Feather
 

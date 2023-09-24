@@ -4,4 +4,8 @@ Foenix Retro Systems produces several models, these pages document various featu
 
 # F256 line
 
+* [Setting up the F256 JR](f256/setting_up_jr.md)
+
+* [Quick Start for JR & K -- Demo programs](f256/quick_start.md)
+
 * [Experimental features](f256/experiments.md)
