@@ -6,6 +6,10 @@ Both the F256K and F256JR have an SD card slot.  The device sofware to read the 
 
 - Card should be "XC" type vs. "HC".   Typically older cards in the 512MB-8GB range work pretty well, which is more than enough space anyways.  Very new cards that are very large tend not to work?
 - Card *MUST* be formatted FAT32 -- **NOT: FAT, FAT12, FAT16, or exFAT**.   Note that while MacOS will read a FAT32 formatted card, the included disk utility won't format FAT32.  Windows 10/11 works fine, but make sure to force FAT32 (or use the command line: `format /FS:FAT32 H:`)
+- Some folks have had luck formatting cards with the [official SD Association formatter for Windows](https://www.sdcard.org/downloads/formatter/sd-memory-card-formatter-for-windows-download/).
+
+
+## Demos Archive
 
 - [Download the most recent demos archive](archive/) and expand it to the root of the flash card.
 

@@ -47,7 +47,11 @@ The JR (and the K) have a DVI output for video.  Either use a DVI montior, or bu
 
 You will definitely want access to the debug USB port as this is the primary way to do cross development for the device.  If you put the mainboard into a standard case, the clearance for the debug USB port on the front of the board is limited.   Either you an [L shaped connector like this one](https://www.amazon.com/StarTech-com-USBAUB2MU-Micro-Cable-Cord/dp/B00ENZDFQ4), or use the [9-pin motherboard style connector](https://www.amazon.com/BAIRONG-Motherboard-Adapter-Female-Dupont/dp/B09B1VGCDR/).  As discussed above, if the case comes with 20-pin style USB3.0 connectors for it's built in ports, use a [converter like this one](https://www.amazon.com/gp/product/B084D58HBP).
 
-### SID (Commodore sound)
+### Sound output
+
+The JR has both standard RCA jacks for stereo audio as well as a 3.5mm headphone port.  The RCA jacks are easily accessible from the exposed ports on the back if the board is put into a case.  The 3.5mm headphone port is more challenging, you may want to use an [L connector like this one](https://www.amazon.com/Gold-Plated-Connector-Compatible-Controller-Speakers/dp/B07YFBCQTT/).
+
+### SID chips (Commodore sound)
 
 The JR has two SID slots for SID chips, but they do not come populated (note: the K effectively includes the 2 SID chips, although they are implemented by the onboard FPGA and are not user replaceable).   Both 9V and 12V SID chips are supported (by jumper).  If you need to buy SID chips, you can buy used stock or one of the new replacements like BackSID, SwinSID, or ARM SID.
 
