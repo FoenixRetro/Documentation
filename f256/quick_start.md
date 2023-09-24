@@ -45,14 +45,18 @@ load "JrWordl.bas"
 run
 ```
 
-Explore the included demo SuperBASIC programs
+Read built-in help/reference:
+
+`/help` : But NB, this erases BASIC memory!  Use Backspace key to go back in menus and to exit.
+
+Explore the included demo SuperBASIC programs:
 
 | Program | Notes | Source | 
 | ------- | ----- | ------ |
 | `JrWordl.bas` | Wordle game, guess 5 letter word
 | `mandel.bas` | Draws Mandlebrot set in graphics mode, takes a few mins
 | `Problematic_Code.bas` | Displays scrolling starfield
-| `noelrl.bas` | Simple integer BASIC bench mark from Noel's retro lab.  Completes < 3.5 seconds, compares very favorably to other retro systems!| [Youtube](https://www.youtube.com/watch?v=H05hM_Guoqk).
+| `noelrl.bas` | Simple integer BASIC bench mark from Noel's retro lab.  Completes < 3.5 seconds, compares very favorably to other retro systems!| [Youtube](https://www.youtube.com/watch?v=H05hM_Guoqk)
 | `dance.bas` | Animates sprite of dancer
 | `luna.bas` | Displays simple scene
 | `blink.bas` | Blinks drive access light
@@ -60,7 +64,23 @@ Explore the included demo SuperBASIC programs
 
 # Native Code
 
-- Binary programs for the F256 line are typically distributed as `PGX` or `PGZ` files (see [ref here](https://wiki.c256foenix.com/index.php?title=Executable_binary_file), they are like the `PRG` format in the C64 ecosystem).
+- Binary programs for the F256 line are typically distributed as `pgx` or `pgz` files (see [ref here](https://wiki.c256foenix.com/index.php?title=Executable_binary_file), they are like the `prg` format in the C64 ecosystem).
+
+- SuperBASIC: Slash (`/`) command will execute the named flash resident program, such as `/dos` or `/help` (SuperBASIC reference).
+
+- PGZ/X files can be run from SuperBASIC with `/- program.pgz`, and from DOS with `- program.pgz`
+
+- The `-` is also referred to as `pexec`, and is a chainloader that understands `pgx` and `pgx`, so `/- program.pgz` first hands over control to `pexec` which then loads the program and hands over control.
+
+- You will typically need to reset the machine to get back to SuperBASIC.
+
+- Switch to DOS with `/dos` and back into BASIC once there with `basic`.  `help` display a list of available DOS commands.
+
+Try the included native demo programs:
+
+| Program | Notes | Source | 
+| ------- | ----- | ------ |
+| `balls.pgz` | Demonstrates 280 multiplexed sprites | [GitHub](https://github.com/FoenixRetro/demos/blob/main/README.md)
 
 
 # More Resources
