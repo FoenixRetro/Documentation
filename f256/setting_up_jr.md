@@ -63,7 +63,7 @@ The F256 line sports a battery backed real-time clock (RTC) that will keep the t
 
 ### Case port cover / back plate
 
-The recommended case above doesn't come with a backplate / port cover.  You can the case open, or:
+The recommended case above doesn't come with a backplate / port cover.  You can leave the back of the case open, or:
 
 - Buy a [universal back plate](https://www.amazon.com/IOmesh-Black-Universal-Shield-Plate/dp/B08NWFQXMJ/) and cut it.
 - Request the STL file for the backplate from Discord and 3d-print it.
@@ -74,7 +74,7 @@ The F256 line can be expanded to support TCP/IP over Wi-Fi, using an ESP8266.  D
 
 # Assembly
 
-- Connect ATX power connector to main board before screwing the main board into the bottom of the case -- in general, you want to avoid putting a lot of pressure on the main board once it's on the mounting standoffs, because the flex can damage the board.
+- A best practice is to carefully install the Pico power module into the Jr. board BEFORE mounting in your case to avoid excessive board flex (flex can get ugly if you install the board first on it's case stand-offs and then push down on it with force to insert cables).  The same applies to the SID sockets.
 
 - Green wire from PicoPSU should be grounded, you can use a motherboard mounting screw to hold it down
 

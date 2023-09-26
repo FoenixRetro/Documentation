@@ -38,6 +38,7 @@ To get started, you can type in a sample program at the command prompt:
 10 for i=1 to 5
 20 print "Hello world"
 30 next
+run
 ```
 
 SuperBASIC is similar to CBM (Microsoft) BASIC but has some differences.  For eg, note in sample above it's just `next` vs `next i`.  The first 15 or so pages of the [reference manual](https://github.com/FoenixRetro/f256-superbasic/blob/main/reference/source/f256jr_basic_ref.pdf) are quite instructive.  SuperBASIC is actually much more powerful and supports structured programming (procedures, blocks etc.) 
@@ -91,6 +92,8 @@ Try the included native demo programs:
 
 | Program | Notes | Source | 
 | ------- | ----- | ------ |
+| `wrtn0825-vcf.pgz` | Which Rules the Night (game) | @beethead
+| `matchit0825-vcf.pgz` | Match It (game) | @beethead
 | `balls.pgz` | Demonstrates 280 multiplexed sprites | [GitHub](https://github.com/FoenixRetro/demos/blob/main/README.md)
 
 
