@@ -38,7 +38,10 @@ To get started, you can type in a sample program at the command prompt:
 10 for i=1 to 5
 20 print "Hello world"
 30 next
+run
 ```
+
+SuperBASIC is similar to CBM (Microsoft) BASIC but has some differences.  For eg, note in sample above it's just `next` vs `next i`.  The first 15 or so pages of the [reference manual](https://github.com/FoenixRetro/f256-superbasic/blob/main/reference/source/f256jr_basic_ref.pdf) are quite instructive.  SuperBASIC is actually much more powerful and supports structured programming (procedures, blocks etc.) 
 
 `dir` - Run this to display directory of SD card
 
@@ -48,6 +51,10 @@ Loading & running programs off of the SD card is similarly easy:
 load "JrWordl.bas"
 run
 ```
+
+Similar to the C64, you can save time in loading programs from the `dir` listing by using your cursor keys to go up to the entry, typing `load "` (insert mode is active by default) etc.  You can use `CTRL+E` to jump to the end of the line and use `CTRL+K` to delete any text from the cursor to the end of the line.  Correctly place the closing `"` and hit `ENTER`.
+
+`CTRL+C` acts as a "break" command and stops any running SuperBASIC program or `LIST` command.
 
 Read built-in help/reference:
 
@@ -59,6 +66,7 @@ Explore the included demo SuperBASIC programs:
 | ------- | ----- | ------ |
 | `JrWordl.bas` | Wordle game, guess 5 letter word
 | `mandel.bas` | Draws Mandlebrot set in graphics mode, takes a few mins
+| `rpg-demo.bas` | UI sample that shows Zelda like RPG game.  Control the character with an Atari-joystick connected to JoyPort1 | @econtrerasd
 | `Problematic_Code.bas` | Displays scrolling starfield
 | `noelrl.bas` | Simple integer BASIC bench mark from Noel's retro lab.  Completes < 3.5 seconds, compares very favorably to other retro systems!| [Youtube](https://www.youtube.com/watch?v=H05hM_Guoqk)
 | `dance.bas` | Animates sprite of dancer
@@ -84,6 +92,8 @@ Try the included native demo programs:
 
 | Program | Notes | Source | 
 | ------- | ----- | ------ |
+| `wrtn0825-vcf.pgz` | Which Rules the Night (game) | @beethead
+| `matchit0825-vcf.pgz` | Match It (game) | @beethead
 | `balls.pgz` | Demonstrates 280 multiplexed sprites | [GitHub](https://github.com/FoenixRetro/demos/blob/main/README.md)
 
 
