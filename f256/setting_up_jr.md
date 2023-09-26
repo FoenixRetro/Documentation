@@ -109,3 +109,7 @@ USB Header:
 Audio Header:
 
 <img src="images/audio_header_cut.jpg" height="300">
+
+# Next Steps
+
+Read the [Quick Start guide](quick_start.md)!
