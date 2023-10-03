@@ -172,7 +172,7 @@ A KUP started from disk has LUT #3 slots 0-4 mapped to RAM, some of which will b
 In both cases the kernel is intact and available for use straight away.
 
 ## PGX
-This format is a simple, single segment executable, which can be loaded as low as $0200. A PGX is loaded using `pexec`. `pexec` treats PGX nad PGZ in exactly the same way, and information on how PGZ is handled also applies to PGX.
+This format is a simple, single segment executable, which can be loaded as low as $0200. A PGX is loaded using `pexec`. `pexec` treats PGX and PGZ in exactly the same way, and information on how PGZ is handled also applies to PGX.
 
 ## PGZ
 This is a more advanced multi-segment executable. It can be loaded as low as $0200. It is loaded using `pexec`.
