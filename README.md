@@ -8,4 +8,4 @@ Foenix Retro Systems produces several models, these pages document various featu
 
 * [Quick Start for JR & K -- Demo programs](f256/quick_start.md)
 
-* [Experimental features](f256/experiments.md)
+* [Introduction to Programming](f256/programming-information.md)

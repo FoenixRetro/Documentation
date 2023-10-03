@@ -45,7 +45,7 @@ The JR (and the K) have a DVI output for video.  Either use a DVI montior, or bu
 
 ### Debug USB port connector
 
-You will definitely want access to the debug USB port as this is the primary way to do cross development for the device.  If you put the mainboard into a standard case, the clearance for the debug USB port on the front of the board is limited.   Either you an [L shaped connector like this one](https://www.amazon.com/StarTech-com-USBAUB2MU-Micro-Cable-Cord/dp/B00ENZDFQ4), or use the [9-pin motherboard style connector](https://www.amazon.com/BAIRONG-Motherboard-Adapter-Female-Dupont/dp/B09B1VGCDR/).  As discussed above, if the case comes with 20-pin style USB3.0 connectors for it's built in ports, use a [converter like this one](https://www.amazon.com/gp/product/B084D58HBP).
+You will definitely want access to the debug USB port as this is the primary way to do cross development for the device.  If you put the mainboard into a standard case, the clearance for the debug USB port on the front of the board is limited.   Either you an [L shaped connector like this one](https://www.amazon.com/StarTech-com-USBAUB2MU-Micro-Cable-Cord/dp/B00ENZDFQ4), or use the [9-pin motherboard style connector](https://www.amazon.com/BAIRONG-Motherboard-Adapter-Female-Dupont/dp/B09B1VGCDR/).  As discussed above, if the case comes with 20-pin style USB3.0 connectors for its built in ports, use a [converter like this one](https://www.amazon.com/gp/product/B084D58HBP).
 
 ### Sound output
 
@@ -66,7 +66,7 @@ The F256 line sports a battery backed real-time clock (RTC) that will keep the t
 The recommended case above doesn't come with a backplate / port cover.  You can leave the back of the case open, or:
 
 - Buy a [universal back plate](https://www.amazon.com/IOmesh-Black-Universal-Shield-Plate/dp/B08NWFQXMJ/) and cut it.
-- Request the STL file for the backplate from Discord and 3d-print it.
+- 3D print [the back IO panel](archive/Back_Bezel_F256Jr_RevB0A.stl).
 
 ### ESP8266 Wi-Fi Feather
 
@@ -74,7 +74,7 @@ The F256 line can be expanded to support TCP/IP over Wi-Fi, using an ESP8266.  D
 
 # Assembly
 
-- A best practice is to carefully install the Pico power module into the Jr. board BEFORE mounting in your case to avoid excessive board flex (flex can get ugly if you install the board first on it's case stand-offs and then push down on it with force to insert cables).  The same applies to the SID sockets.
+- A best practice is to carefully install the Pico power module into the Jr. board BEFORE mounting in your case to avoid excessive board flex (flex can get ugly if you install the board first on its case stand-offs and then push down on it with force to insert cables).  The same applies to the SID sockets.
 
 - Green wire from PicoPSU should be grounded, you can use a motherboard mounting screw to hold it down
 
