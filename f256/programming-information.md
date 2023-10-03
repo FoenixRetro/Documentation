@@ -141,7 +141,7 @@ This is a more advanced multi-segment executable. It can be loaded as low as $02
 
 When `pexec` loads a program using the kernel, the program must not load itself into RAM banks 6 & 7, as these are used by the kernel. If the program does not need the kernel, it may of course utilize these banks once it is running. `pexec` is otherwise able to load code and data into anywhere in physical memory.
 
-When the program starts, the state of the MMU LUTs is very similar to when a KUP starts. LUT #3 is active and slots 0-4 are mapped to RAM banks 0-4. The program's entry point must be in this region.
+When the program starts, the state of the MMU LUTs is very similar to when a KUP starts. LUT #3 is active and slots 0-4 are mapped to RAM banks 0-4. The program's entry point must be in this region. Slot 6-7 are mapped to the kernel, which is still usable right away. Slot 5 is currently undefined.
 
 Testing a PGZ requires copying it to a disk or SD card, and manually running it on the machine.
 
