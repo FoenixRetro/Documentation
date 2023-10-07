@@ -72,7 +72,7 @@ Explore the included demo SuperBASIC programs:
 | `dance.bas` | Animates sprite of dancer | [@Mu0n](https://github.com/Mu0n/F256KbasicBASICdoodles)
 | `luna.bas` | Displays simple scene
 | `blink.bas` | Blinks drive access light | [@Mu0n](https://github.com/Mu0n/F256KbasicBASICdoodles)
-
+| `piano.bas` | Play some notes with the PSG |  [@Mu0n](https://github.com/Mu0n/F256KbasicBASICdoodles)
 
 # Native Code
 
@@ -82,7 +82,7 @@ Explore the included demo SuperBASIC programs:
 
 - PGZ/X files can be run from SuperBASIC with `/- program.pgz`, and from DOS with `- program.pgz`
 
-- The `-` is also referred to as `pexec`, and is a chainloader that understands `pgx` and `pgx`, so `/- program.pgz` first hands over control to `pexec` which then loads the program and hands over control.
+- The `-` is also referred to as `pexec`, and is a chainloader that understands `pgx` and `pgz` formats, so `/- program.pgz` first hands over control to `pexec` which then loads the program and hands over control.
 
 - You will typically need to reset the machine to get back to SuperBASIC.
 
