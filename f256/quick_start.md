@@ -65,13 +65,13 @@ Explore the included demo SuperBASIC programs:
 | Program | Notes | Source | 
 | ------- | ----- | ------ |
 | `JrWordl.bas` | Wordle game, guess 5 letter word
-| `mandel.bas` | Draws Mandlebrot set in graphics mode, takes a few mins
+| `mandel.bas` | Draws Mandlebrot set in graphics mode, takes between 2 and 3 hours | [@Mu0n](https://github.com/Mu0n/F256KbasicBASICdoodles)
 | `rpg-demo.bas` | UI sample that shows Zelda like RPG game.  Control the character with an Atari-joystick connected to JoyPort1 | @econtrerasd
 | `Problematic_Code.bas` | Displays scrolling starfield
 | `noelrl.bas` | Simple integer BASIC bench mark from Noel's retro lab.  Completes < 3.5 seconds, compares very favorably to other retro systems!| [Youtube](https://www.youtube.com/watch?v=H05hM_Guoqk)
-| `dance.bas` | Animates sprite of dancer
+| `dance.bas` | Animates sprite of dancer | [@Mu0n](https://github.com/Mu0n/F256KbasicBASICdoodles)
 | `luna.bas` | Displays simple scene
-| `blink.bas` | Blinks drive access light
+| `blink.bas` | Blinks drive access light | [@Mu0n](https://github.com/Mu0n/F256KbasicBASICdoodles)
 
 
 # Native Code
