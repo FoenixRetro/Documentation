@@ -47,6 +47,11 @@ The JR (and the K) have a DVI output for video.  Either use a DVI montior, or bu
 
 You will definitely want access to the debug USB port as this is the primary way to do cross development for the device.  If you put the mainboard into a standard case, the clearance for the debug USB port on the front of the board is limited.   Either you an [L shaped connector like this one](https://www.amazon.com/StarTech-com-USBAUB2MU-Micro-Cable-Cord/dp/B00ENZDFQ4), or use the [9-pin motherboard style connector](https://www.amazon.com/BAIRONG-Motherboard-Adapter-Female-Dupont/dp/B09B1VGCDR/).  As discussed above, if the case comes with 20-pin style USB3.0 connectors for its built in ports, use a [converter like this one](https://www.amazon.com/gp/product/B084D58HBP).
 
+
+### Joystick ports
+
+There are two Atari-style joystick connectors (2x DR10) and a 3rd DR10 port for the NES/SNES adapter.   For all 3 ports, you'll need a connector like [this one](https://www.amazon.com/StarTech-com-Serial-Motherboard-Header-Panel/dp/B0067DB6RU/) to get a DB9 port.  For the Atari joystick ports, you can then connect the joysticks directly to the DB9.  The NES/SNES adapter port is intended to be used with the [DB9 ended FNX4N4S adapter](https://c256foenix.com/product/fnx4n4s/?v=7516fd43adaa) -- which allows the connection of up to 4 NES or SNES gamepads.  Note due to the format and voltage levels of this port, simply connecting a single Japanese-style SNES controller with a DB9 style cable will not work.  
+
 ### Sound output
 
 The JR has both standard RCA jacks for stereo audio as well as a 3.5mm headphone port.  The RCA jacks are easily accessible from the exposed ports on the back if the board is put into a case.  The 3.5mm headphone port is more challenging, you may want to use an [L connector like this one](https://www.amazon.com/Gold-Plated-Connector-Compatible-Controller-Speakers/dp/B07YFBCQTT/).
