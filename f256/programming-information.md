@@ -7,7 +7,7 @@ This guide is meant as a starting point for programmers wanting to develop for t
 
 Note that the [F256Jr](https://c256foenix.com/f256-jr/?v=7516fd43adaa) and the [F256K](https://c256foenix.com/f256k/?v=7516fd43adaa) are almost identical from a programming perspective.  The main differences are:
 - 256K has OPL3 sound chip and the Jr doesn't.
-- 256K's built in keyboard is implemented as an additional CBM-style (matrix) keyboard via a CIA whereas Jr's is PS/2 style.  The K also supports connecting a PS/2 external keyboard.  The difference in keyboard interfaces is abstracted from you if you run on top of the MicroKernel, but if you take over the entire machine and run baremetal, you need to compensate for this difference.
+- 256K's built in keyboard is implemented as an additional CBM-style (matrix) keyboard via a CIA whereas Jr's is PS/2 style.  The K also supports connecting a PS/2 external keyboard. The Jr also supports connection a real CBM keyboard or electrically equivalent. The difference in keyboard interfaces is abstracted from you if you run on top of the MicroKernel, but if you take over the entire machine and run baremetal, you need to compensate for this difference.
 
 
 # Introduction
@@ -85,6 +85,7 @@ These KUPs also have a name which is used to refer to them by users or code. The
 
 |Program|Name|
 |---|---|
+|xdev|Cross-development helper|
 |SuperBASIC|basic|
 |SuperBASIC Help|help|
 |DOS|dos|
@@ -92,7 +93,7 @@ These KUPs also have a name which is used to refer to them by users or code. The
 
 SuperBASIC can switch to another KUP by issuing the "slash" command, eg. `/dos` will execute the KUP named `dos`. 
 
-DOS can switch to another program just be typing its name on the commandline, eg `basic` to enter the SuperBASIC environment. DOS also implements its own functionality that enables loading KUPs from disk, this is not handled by the kernel.
+DOS has several built-in commands for maintenance task, such as formatting disks, copying files and forth. DOS can switch to another program just by typing its name on the commandline, eg `basic` to enter the SuperBASIC environment. DOS also implements its own functionality that enables loading KUPs from disk, this is not handled by the kernel. The built-in commands are searched for a matching command name before the KUPs. In order to only search KUPs, and slash may be prepended to command name. This also means that a KUP can always be start with `/command`, no matter the environment. This is useful for providing users with instructions how to start your program.
 
 `pexec` is the program responsible for loading and executing the *PGX* and *PGZ* file formats. In DOS this is done by issuing the command `- program.pgz`. This will execute the `pexec` program (remember, its commandline name is actually `-`), which will load and execute the commandline parameter, in this case `program.pgz`. As previously mentioned, SuperBASIC has the ability to execute a KUP, so from SuperBASIC, the equivalent command would be `/- program.pgz`.
 
@@ -108,6 +109,13 @@ A program is mapped into memory using LUT #3, and LUT #3 will be active when the
 Documentation on how to use the kernel, and the facilities it provides, can be found in the [kernel repository](https://github.com/ghackwrench/F256_MicroKernel/tree/master/docs)
 
 Of course, if you don't need the kernel, you can turn off interrupts, set up LUT 0 the way you prefer, and then switch to it. Although, you'll have to make sure you're not pulling the rug out from under you.
+
+# Interacting with the Machine
+When developing a program, you will frequently need to interact with the machine, in order to test your program. This can simply be done by copying your program to disk or SD card, moving the media to the machine, and running it from DOS.
+
+Moving files between the machines quickly becomes cumbersome, and your may even wear out the SD card slot. The machines also feature a USB debug, which you can connect to a PC or Mac using a regular USB-A to mini USB cable. For Windows and Mac, a special driver is needed. A driver for Windows is included in the firmware package, while the Mac's driver only works only works on older versions of macOS.
+
+To download a program through the USB connetion, the program [FoenixMgr]( https://github.com/FoenixRetro/FoenixMgr.git) is needed. FoenixMgr has several subcommands for flashing blocks, uploading binary images, and running user code in PGZ or PGX format.
 
 # File Formats
 The F256 line has three file formats, each with slightly different properties and use cases. Additionally, pure binary files are often used by developers. The machine will be in a slightly different state, depending on how the program was started. We will cover this in the following sections.
@@ -196,21 +204,23 @@ When `pexec` loads a program, the program must not load itself into RAM banks 6 
 
 When the program starts, the state of the MMU LUTs is very similar to when a KUP starts. LUT #3 is active and slots 0-4 are mapped to RAM banks 0-4. The program's entry point must be in this region. Slots 6 and 7 are mapped to the kernel, which is intact and usable right away. Slot 5 is currently undefined.
 
-Testing a PGZ requires copying it to a disk or SD card, and manually running it on the machine.
+Testing a PGZ can be done by using FoenixMgr and the `xdev`requires copying it to a disk or SD card, and manually running it on the machine.
 
 A PGZ cannot "return" to another program, it can either start a KUP (if the kernel is intact) or reset the machine.
 
 # Startup Sequence
 Assuming the machine is in "Boot-to-Flash"-mode (the usual mode), MMU LUT #0 will be active when it is powered on, RAM banks 0-6 mapped into slots 0-6, and the last block of flash memory mapped into slot 7, where the interrupt vectors (including RESET) also reside. The kernel is usually placed in the last block, which causes it to be the first program running.
 
-When the kernel has initialized itself, it looks for the first program it should start. First the expansion memory is searched, this could be either RAM or ROM. Then the on-board flash memory is searched. If DIP switch #1 is in the "on" position, the kernel will search memory banks 1-5 before the expansion blocks. In most cases no programs are present in expansion memory or main memory, and the first program started is the first one in flash memory. This is usually SuperBASIC, although you can put anything you want there, possibly DOS.
+When the kernel has initialized itself, it looks for the first program it should start. First the expansion memory is searched, this could be either RAM or ROM. Then the on-board flash memory is searched. If DIP switch #1 is in the "on" position, the kernel will search memory banks 1-5 before the expansion blocks. In most cases no programs are present in expansion memory or main memory, and the first program started is the first one in flash memory. In the recent versions of the firmware, this is the `xdev` program, but in older firmwares, this is SuperBASIC. You can put anything you want there, possibly DOS.
+
+When `xdev` starts up, it looks for programs and files uploaded through FoenixMgr, and if found, either copies them to the file system or executes them. If nothing is found, it passing execution on to the next program in flash.
 
 # Parameter Passing
 Although not part of the kernel specification, a standardized method of passing commandline arguments to programs exists.
 
 Both DOS and SuperBASIC are able to pass arguments to the program to run, and `pexec` is also able to pass any further arguments after the filename on to the program. As an example, `/- program.pgz hello` in SuperBASIC would start `pexec` with the parameters `-`, `program.pgz`, and `hello`. `pexec` would then load `program.pgz`, and start it with the parameters `program.pgz` and `hello`.
 
-Arguments are passed in the `ext` and `extlen` kernel arguments. This approach is suitable for passing arguments through the `RunNamed` and `RunBlock` kernel functions, and is also used by `pexec` when starting a PGZ or PGZ program.
+Arguments are passed in the `ext` and `extlen` kernel arguments. This approach is suitable for passing arguments through the `RunNamed` and `RunBlock` kernel functions, and is also used by `pexec` when starting a PGX or PGZ program.
 
 `ext` will contain an array of pointers, one for each argument given on the commandline. The first pointer is the program name itself. The list is terminated with a null pointer. `extlen` contains the length in bytes of the array, less the null pointer. For instance, if two parameters are passed, `extlen` will be 4.
 
