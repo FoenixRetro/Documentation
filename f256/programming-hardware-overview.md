@@ -23,7 +23,7 @@ These KUPs also have a name which is used to refer to them by users or code. The
 
 |Program|Name|
 |---|---|
-|xdev|Cross-development helper|
+|Cross-development helper|xdev|
 |SuperBASIC|basic|
 |SuperBASIC Help|help|
 |DOS|dos|
@@ -31,7 +31,7 @@ These KUPs also have a name which is used to refer to them by users or code. The
 
 SuperBASIC can switch to another KUP by issuing the "slash" command, eg. `/dos` will execute the KUP named `dos`. 
 
-DOS has several built-in commands for maintenance task, such as formatting disks, copying files and forth. DOS can switch to another program just by typing its name on the commandline, eg `basic` to enter the SuperBASIC environment. DOS also implements its own functionality that enables loading KUPs from disk, this is not handled by the kernel. The built-in commands are searched for a matching command name before the KUPs. In order to only search KUPs, and slash may be prepended to command name. This also means that a KUP can always be start with `/command`, no matter the environment. This is useful for providing users with instructions how to start your program.
+DOS has several built-in commands for maintenance tasks, such as formatting disks, copying files and forth. DOS can switch to another program just by typing its name on the commandline, eg `basic` to enter the SuperBASIC environment. DOS also implements its own functionality that enables loading KUPs from disk, this is not handled by the kernel. The built-in commands are searched for a matching command name before the KUPs. In order to only search KUPs, and slash may be prepended to command name. This also means that a KUP can always be started with `/command`, no matter the environment. This is useful for providing users with instructions how to start your program.
 
 `pexec` is the program responsible for loading and executing the *PGX* and *PGZ* file formats. In DOS this is done by issuing the command `- program.pgz`. This will execute the `pexec` program (remember, its commandline name is actually `-`), which will load and execute the commandline parameter, in this case `program.pgz`. As previously mentioned, SuperBASIC has the ability to execute a KUP, so from SuperBASIC, the equivalent command would be `/- program.pgz`.
 

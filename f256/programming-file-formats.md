@@ -9,7 +9,7 @@ Running such an image requires knowledge of its starting address and a properly 
 Binary images should only be used by the developer while developing, as it is a very user-unfriendly method of distributing software, requiring tethering to a PC or Mac.
 
 # KUP
-KUPs are very simple and can contain 40 KiB code/data when run from flash, or 32 KiB when run from disk. Contained in their header is and entry point address, and the bank number of where they should be mapped into, the first possible bank being #1 ($2000).
+KUPs are very simple and can contain 40 KiB code/data when run from flash, or 32 KiB when run from disk. Contained in their header is and entry point address, and the slot number of where they should be mapped into, the first possible slot being #1 ($2000).
 
 The header is very simple:
 
@@ -54,7 +54,7 @@ When `pexec` loads a program, the program must not load itself into RAM banks 6 
 
 When the program starts, the state of the MMU LUTs is very similar to when a KUP starts. LUT #3 is active and slots 0-4 are mapped to RAM banks 0-4. The program's entry point must be in this region. Slots 6 and 7 are mapped to the kernel, which is intact and usable right away. Slot 5 is currently undefined.
 
-Testing a PGZ can be done by using FoenixMgr and the `xdev`requires copying it to a disk or SD card, and manually running it on the machine.
+Testing a PGZ can be done by using FoenixMgr and the `xdev` firmware component. It can of course also be copied to a disk or SD card, and manually run it on the machine.
 
 A PGZ cannot "return" to another program, it can either start a KUP (if the kernel is intact) or reset the machine.
 
