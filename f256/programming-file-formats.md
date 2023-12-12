@@ -11,6 +11,8 @@ Binary images should only be used by the developer while developing, as it is a 
 # KUP
 KUPs are very simple and can contain 40 KiB code/data when run from flash, or 32 KiB when run from disk. Contained in their header is and entry point address, and the slot number of where they should be mapped into, the first possible slot being #1 ($2000).
 
+DOS expands on the KUP header defined by the MicroKernel in a backwards compatible way.
+
 The header is very simple:
 
 ```
@@ -19,12 +21,14 @@ Byte  1    signature: $56
 Byte  2    the size of program in 8k blocks
 Byte  3    the starting slot of the program (ie where to map it)
 Bytes 4-5  the start address of the program
-Byte  6    header structure version
+Byte  6    header structure version (indicates version of header, current 0 or 1)
 Bytes 7-9  reserved
 Bytes ?-?  zero-terminated name of the program.
-Bytes ?-?  zero-terminated string describing the arguments.
-Bytes ?-?  zero-terminated string describing the program's function.
+Bytes ?-?  zero-terminated string describing the arguments. (in version >= 1)
+Bytes ?-?  zero-terminated string describing the program's function. (in version >= 1)
 ```
+
+The MicroKernel ignores the "argument" and "function" header entries. These are printed by DOS' `lsf` command, and only if the header version is greater or equal to 1.
 
 When instructed to start a named KUP, the kernel will search through memory to find a match. First the expansion memory is searched, this could be either RAM or ROM. Then the on-board flash memory is searched. If DIP switch #1 is in the "on" position, the kernel will search memory banks 1-5 before the expansion blocks.
 
