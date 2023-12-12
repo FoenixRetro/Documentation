@@ -51,6 +51,19 @@ In both cases the kernel is intact and available for use straight away.
 ## PGX
 This format is a simple, single segment executable, which can be loaded as low as $0200. A PGX is loaded using `pexec`. `pexec` treats PGX and PGZ in exactly the same way, and information on how PGZ is handled also applies to PGX.
 
+PGZ is similar in scale to MS-DOS’s COM format, or the Commodore PRG format. It consists of a single segment of data to be loaded to
+a specific address, where that address is also the starting address.
+
+PGX starts with a header to identify the file and the starting address:
+
+* The first three bytes are the ASCII codes for “PGX”.
+* The fourth byte is the CPU and version identification byte. Bits 0 through 3 represent
+the CPU code, and bits 4 through 7 represent the version of PGX supported. At the moment, there is just version 0. The CPU code can be 1 for the WDC65816, or 2 for the
+M680x0.
+* The next four bytes (that is, bytes 4 through 7) are the address of the destination, in big-endian format (most significant byte first). This address is both the address of the location in which to load the first byte of the data and is also the starting address for the file.
+
+All bytes after the header are the contents of the file to be loaded into memory.
+
 ## PGZ
 This is a more advanced multi-segment executable. It can be loaded as low as $0200. It is loaded using `pexec`.
 
@@ -62,3 +75,17 @@ Testing a PGZ can be done by using FoenixMgr and the `xdev` firmware component. 
 
 A PGZ cannot "return" to another program, it can either start a KUP (if the kernel is intact) or reset the machine.
 
+The first byte of the file is a file signature and also a version tag. If the first byte is an upper case Z, the file is a 24-bit PGZ file (i.e. all addresses and sizes specified in the file are 24-bits). If the file is a lower case Z, the file is a 32-bit PGZ file (all address and sizes are 32-bits in
+length). Note that all addresses and sizes are in little endian format (that is, least significant
+byte first).
+
+After the initial byte, the remainder of the PGZ file consists of segments, one after the other. Each segment consists of two or three fields:
+
+|Field|Size|Description|
+|-|-|-|
+|address|3 (`Z`) or 4 (`z`) bytes|The target address for this segment|
+|size|3 (`Z`) or 4 (`z`) bytes|The number of bytes in the data field|
+|data|`size` bytes|The data to be loaded (optional)|
+
+For a particular segment, if the size field is 0, there will be no bytes in the data field, and the segment specifies the starting address of the entire program. At least one such segment must be present in the PGZ file for it to be executable. If more than one is present, the last one will
+be the one used to specify the starting address.
