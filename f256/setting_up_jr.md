@@ -45,7 +45,7 @@ The JR (and the K) have a DVI output for video.  Either use a DVI montior, or bu
 
 ### Debug USB port connector
 
-You will definitely want access to the debug USB port as this is the primary way to do cross development for the device.  If you put the mainboard into a standard case, the clearance for the debug USB port on the front of the board is limited.   Either you an [L shaped connector like this one](https://www.amazon.com/StarTech-com-USBAUB2MU-Micro-Cable-Cord/dp/B00ENZDFQ4), or use the [9-pin motherboard style connector](https://www.amazon.com/BAIRONG-Motherboard-Adapter-Female-Dupont/dp/B09B1VGCDR/).  As discussed above, if the case comes with 20-pin style USB3.0 connectors for its built in ports, use a [converter like this one](https://www.amazon.com/gp/product/B084D58HBP).
+You will definitely want access to the debug USB port as this is the primary way to do cross development for the device.  If you put the mainboard into a standard case, the clearance for the debug USB port on the front of the board is limited.   Either you an [L shaped connector like this one](https://www.amazon.com/StarTech-com-USBAMB2MD-Mini-Cable-Cord/dp/B00F2GR2H6), or use the [9-pin motherboard style connector](https://www.amazon.com/BAIRONG-Motherboard-Adapter-Female-Dupont/dp/B09B1VGCDR/).  As discussed above, if the case comes with 20-pin style USB3.0 connectors for its built in ports, use a [converter like this one](https://www.amazon.com/gp/product/B084D58HBP).
 
 
 ### Joystick ports
